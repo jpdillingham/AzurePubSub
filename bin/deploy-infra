@@ -1,0 +1,8 @@
+az group create --name AzurePubSub --location eastus
+
+az deployment group create \
+  --resource-group AzurePubSub \
+  --template-file ./infra/main.bicep \
+  --parameters \
+    serviceBusNamespaceName=AzurePubSubNS \
+    serviceBusQueueName=AzurePubSubQueue 
